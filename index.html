@@ -3,23 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore the fundamental nature of knowledge, reality, and existence with Think Philosophy. Join a community of thinkers, chat with AI philosophers, and read community articles.">
-    <meta name="keywords" content="Philosophy, Socrates, Nietzsche, Stoicism, AI Chat, Ethics, Metaphysics">
-    <meta name="author" content="Think Philosophy">
-    <title>Think Philosophy - The Unexamined Life Is Not Worth Living</title>
     
-    <!-- Google Fonts -->
+    <!-- SEO & Metadata -->
+    <title>Think Philosophy - The Unexamined Life Is Not Worth Living</title>
+    <meta name="description" content="A digital sanctuary for critical thinkers. Explore philosophy, chat with AI philosophers (Socrates, Nietzsche), and read community essays on ethics, metaphysics, and logic.">
+    <meta name="keywords" content="Philosophy, Socrates, Nietzsche, Stoicism, AI Chat, Ethics, Metaphysics, Political Philosophy">
+    <meta name="author" content="Think Philosophy Community">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shresthasandesh1227-creator.github.io/think-philosophy/">
+    <meta property="og:title" content="Think Philosophy - Dialectic Engine & Community">
+    <meta property="og:description" content="Join the dialogue. Chat with AI versions of great minds and explore the fundamental nature of reality.">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Socrate_du_Louvre.jpg/800px-Socrate_du_Louvre.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://shresthasandesh1227-creator.github.io/think-philosophy/">
+    <meta property="twitter:title" content="Think Philosophy">
+    <meta property="twitter:description" content="The unexamined life is not worth living. Join us.">
+    <meta property="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Socrate_du_Louvre.jpg/800px-Socrate_du_Louvre.jpg">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Think Philosophy",
+      "url": "https://shresthasandesh1227-creator.github.io/think-philosophy/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://shresthasandesh1227-creator.github.io/think-philosophy/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- Fonts & Libraries -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Tailwind Config for Custom Fonts/Colors -->
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -41,8 +69,8 @@
                             600: '#264a64',
                             700: '#1f3d53',
                             800: '#193142',
-                            900: '#152836', // Deep Slate
-                            950: '#0b141b', // Almost Black
+                            900: '#152836',
+                            950: '#0b141b',
                         },
                         gold: {
                             400: '#d4af37',
@@ -52,7 +80,6 @@
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'fade-in': 'fadeIn 0.3s ease-out',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         float: {
@@ -71,541 +98,381 @@
 
     <style>
         /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0b141b; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2a526f; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #d4af37; 
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0b141b; }
+        ::-webkit-scrollbar-thumb { background: #2a526f; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #d4af37; }
 
-        /* Gradient Text Utility */
+        /* Utilities */
         .gold-gradient {
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-image: linear-gradient(to right, #fcd34d, #d4af37, #b45309);
         }
-
-        /* Canvas styling */
         #constellation-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.4;
-            pointer-events: none;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.4; pointer-events: none;
         }
-
-        /* Chat Animations */
-        @keyframes message-in {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .message-bubble {
-            animation: message-in 0.3s ease-out forwards;
-        }
-        .typing-dot {
-            animation: typing 1.4s infinite ease-in-out both;
-        }
+        /* Animations */
+        @keyframes message-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .message-bubble { animation: message-in 0.3s ease-out forwards; }
+        .typing-dot { animation: typing 1.4s infinite ease-in-out both; }
         .typing-dot:nth-child(1) { animation-delay: -0.32s; }
         .typing-dot:nth-child(2) { animation-delay: -0.16s; }
-        @keyframes typing {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1); }
-        }
-
-        /* Nav Active State */
-        .nav-link.active {
-            color: #d4af37;
-            position: relative;
-        }
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: #d4af37;
-            border-radius: 2px;
-        }
+        @keyframes typing { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+        
+        /* Focus Visibility for A11y */
+        *:focus-visible { outline: 2px solid #d4af37; outline-offset: 2px; }
+        .nav-link.active { color: #d4af37; position: relative; }
+        .nav-link.active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background-color: #d4af37; border-radius: 2px; }
     </style>
 </head>
-<body class="bg-brand-950 text-slate-300 font-sans antialiased overflow-x-hidden selection:bg-gold-500 selection:text-white relative">
+<body class="bg-brand-950 text-slate-300 font-sans antialiased overflow-x-hidden selection:bg-gold-500 selection:text-white relative flex flex-col min-h-screen">
 
-    <!-- Toast Notification Container -->
-    <div id="toast-container" class="fixed top-24 right-4 z-[100] flex flex-col gap-2"></div>
+    <!-- Toast Notification -->
+    <div id="toast-container" class="fixed top-24 right-4 z-[100] flex flex-col gap-2" role="alert" aria-live="polite"></div>
 
-    <!-- Generic Modal Overlay -->
-    <div id="modal-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300" onclick="closeModal(event)">
-        <div id="modal-content" class="bg-brand-900 border border-white/10 rounded-2xl w-full max-w-2xl max-h-[80vh] overflow-y-auto shadow-2xl transform scale-95 transition-transform duration-300 p-8 relative" onclick="event.stopPropagation()">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors" aria-label="Close Modal">
+    <!-- Modal Overlay -->
+    <div id="modal-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300" onclick="closeModal()" aria-hidden="true">
+        <div id="modal-content" class="bg-brand-900 border border-white/10 rounded-2xl w-full max-w-2xl max-h-[80vh] overflow-y-auto shadow-2xl transform scale-95 transition-transform duration-300 p-8 relative" onclick="event.stopPropagation()" role="dialog" aria-modal="true">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors p-2" aria-label="Close Modal">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
-            <div id="modal-body">
-                <!-- Dynamic Content Goes Here -->
-            </div>
+            <div id="modal-body"></div>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-950/80 backdrop-blur-md border-b border-white/5" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <a href="#" class="flex items-center gap-2 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-gold-500 rounded-lg p-1" onclick="window.scrollTo(0,0)">
-                    <i data-lucide="brain-circuit" class="w-8 h-8 text-gold-400 group-hover:rotate-12 transition-transform duration-500"></i>
-                    <span class="font-display font-bold text-xl tracking-wider text-white">Think <span class="text-gold-400">Philosophy</span></span>
-                </a>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#branches" class="nav-link hover:text-gold-400 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:text-gold-400">Branches</a>
-                        <a href="#philosophers" class="nav-link hover:text-gold-400 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:text-gold-400">Great Minds</a>
-                        <a href="#ai-chat" class="nav-link hover:text-gold-400 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gold-400 focus:outline-none focus:text-gold-400">AI Chat</a>
-                        <a href="#articles" class="nav-link hover:text-gold-400 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:text-gold-400">Articles</a>
+    <header>
+        <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-950/80 backdrop-blur-md border-b border-white/5" id="navbar" aria-label="Main Navigation">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <a href="#" class="flex items-center gap-2 group cursor-pointer rounded-lg p-1" onclick="window.scrollTo(0,0)" aria-label="Think Philosophy Home">
+                        <i data-lucide="brain-circuit" class="w-8 h-8 text-gold-400 group-hover:rotate-12 transition-transform duration-500"></i>
+                        <span class="font-display font-bold text-xl tracking-wider text-white">Think <span class="text-gold-400">Philosophy</span></span>
+                    </a>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a href="#branches" class="nav-link hover:text-gold-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Branches</a>
+                            <a href="#philosophers" class="nav-link hover:text-gold-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Great Minds</a>
+                            <a href="#ai-chat" class="nav-link hover:text-gold-400 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gold-400">AI Chat</a>
+                            <a href="#articles" class="nav-link hover:text-gold-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Articles</a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2 rounded-md focus:ring-2 focus:ring-gold-500" aria-label="Open Menu" aria-expanded="false">
+                            <i data-lucide="menu" class="w-6 h-6"></i>
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2" aria-label="Open Menu">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
+            <!-- Mobile Menu Panel -->
+            <div id="mobile-menu" class="hidden md:hidden bg-brand-900 border-b border-white/10">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#branches" class="text-gray-300 hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium" onclick="closeMobileMenu()">Branches</a>
+                    <a href="#philosophers" class="text-gray-300 hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium" onclick="closeMobileMenu()">Great Minds</a>
+                    <a href="#ai-chat" class="text-gold-400 hover:text-gold-300 block px-3 py-2 rounded-md text-base font-medium" onclick="closeMobileMenu()">AI Chat</a>
+                    <a href="#articles" class="text-gray-300 hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium" onclick="closeMobileMenu()">Articles</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center overflow-hidden" id="home" aria-label="Hero Section">
+            <canvas id="constellation-canvas"></canvas>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-950/50 to-brand-950 z-10"></div>
+
+            <div class="relative z-20 text-center px-4 max-w-4xl mx-auto animate-float">
+                <div class="inline-block mb-4 px-4 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 backdrop-blur-sm">
+                    <span class="text-gold-400 text-xs font-display tracking-[0.2em] uppercase">Sapere Aude</span>
+                </div>
+                <!-- Capitalized as requested -->
+                <h1 class="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight uppercase">
+                    The Unexamined Life <br>
+                    <span class="gold-gradient italic font-serif">Is Not Worth Living</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto font-light">
+                    Explore the fundamental nature of knowledge, reality, and existence. Join a community of thinkers seeking wisdom in the modern age.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="document.getElementById('ai-chat').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 bg-gold-500 hover:bg-gold-400 text-brand-950 font-bold rounded-sm transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] flex items-center justify-center gap-2 group" aria-label="Start chatting with AI">
+                        Chat with AI
+                        <i data-lucide="message-square" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                    <button onclick="document.getElementById('articles').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 bg-transparent border border-white/20 hover:bg-white/5 text-white font-semibold rounded-sm transition-all backdrop-blur-sm" aria-label="Read or write articles">
+                        Write Article
                     </button>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-900 border-b border-white/10">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#branches" class="text-gray-300 hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium" onclick="closeMobileMenu()">Branches</a>
-                <a href="#philosophers" class="text-gray-300 hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium" onclick="closeMobileMenu()">Great Minds</a>
-                <a href="#ai-chat" class="text-gold-400 hover:text-gold-300 block px-3 py-2 rounded-md text-base font-medium" onclick="closeMobileMenu()">AI Chat</a>
-                <a href="#articles" class="text-gray-300 hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium" onclick="closeMobileMenu()">Articles</a>
-            </div>
-        </div>
-    </nav>
+        <!-- AI Chat Section -->
+        <section id="ai-chat" class="py-24 px-4 bg-brand-900 border-y border-white/5 relative" aria-labelledby="chat-heading">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12">
+                    <span class="text-gold-400 text-sm font-bold tracking-widest uppercase">Dialectic Engine</span>
+                    <h2 id="chat-heading" class="text-4xl md:text-5xl font-display font-bold text-white mt-2 mb-4">Converse with the Masters</h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">Select a philosopher. Simulation mode is active by default.</p>
+                </div>
 
-    <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden" id="home">
-        <!-- Canvas Background -->
-        <canvas id="constellation-canvas"></canvas>
-        
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-950/50 to-brand-950 z-10"></div>
-
-        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto animate-float">
-            <div class="inline-block mb-4 px-4 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 backdrop-blur-sm">
-                <span class="text-gold-400 text-xs font-display tracking-[0.2em] uppercase">Sapere Aude</span>
-            </div>
-            <h1 class="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight">
-                The Unexamined Life <br>
-                <span class="gold-gradient italic font-serif">Is Not Worth Living</span>
-            </h1>
-            <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto font-light">
-                Explore the fundamental nature of knowledge, reality, and existence. Join a community of thinkers seeking wisdom in the modern age.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="document.getElementById('ai-chat').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 bg-gold-500 hover:bg-gold-400 text-brand-950 font-bold rounded-sm transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] flex items-center justify-center gap-2 group focus:outline-none focus:ring-2 focus:ring-white">
-                    Chat with AI
-                    <i data-lucide="message-square" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                </button>
-                <button onclick="document.getElementById('articles').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 bg-transparent border border-white/20 hover:bg-white/5 text-white font-semibold rounded-sm transition-all backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
-                    Write Article
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Chat Section -->
-    <section id="ai-chat" class="py-24 px-4 bg-brand-900 border-y border-white/5 relative">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12">
-                <span class="text-gold-400 text-sm font-bold tracking-widest uppercase">Dialectic Engine</span>
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-white mt-2 mb-4">Converse with the Masters</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Select a philosopher and ask them about life, the universe, or your daily struggles.</p>
-            </div>
-
-            <div class="flex flex-col lg:flex-row h-[600px] bg-brand-950 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
-                <!-- Sidebar -->
-                <div class="lg:w-1/4 bg-brand-900 border-r border-white/5 p-4 flex flex-col">
-                    <h3 class="text-white font-bold mb-4 px-2">Philosophers</h3>
-                    <div class="space-y-2 overflow-y-auto flex-1 custom-scrollbar">
-                        <button onclick="selectPhilosopher('socrates')" id="btn-socrates" class="w-full text-left p-3 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-3 border border-transparent hover:border-white/10 active-philosopher bg-white/10 border-gold-500/30 focus:outline-none focus:ring-1 focus:ring-gold-500">
-                            <div class="w-10 h-10 rounded-full bg-slate-700 overflow-hidden">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Socrate_du_Louvre.jpg/100px-Socrate_du_Louvre.jpg" class="w-full h-full object-cover" alt="Socrates Bust" loading="lazy">
-                            </div>
-                            <div>
-                                <div class="font-bold text-white">Socrates</div>
-                                <div class="text-xs text-slate-400">The Gadfly</div>
-                            </div>
-                        </button>
-                        
-                        <button onclick="selectPhilosopher('nietzsche')" id="btn-nietzsche" class="w-full text-left p-3 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-3 border border-transparent hover:border-white/10 focus:outline-none focus:ring-1 focus:ring-gold-500">
-                            <div class="w-10 h-10 rounded-full bg-slate-700 overflow-hidden">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/100px-Nietzsche187a.jpg" class="w-full h-full object-cover" alt="Nietzsche Portrait" loading="lazy">
-                            </div>
-                            <div>
-                                <div class="font-bold text-white">Nietzsche</div>
-                                <div class="text-xs text-slate-400">The Iconoclast</div>
-                            </div>
-                        </button>
-
-                        <button onclick="selectPhilosopher('aurelius')" id="btn-aurelius" class="w-full text-left p-3 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-3 border border-transparent hover:border-white/10 focus:outline-none focus:ring-1 focus:ring-gold-500">
-                            <div class="w-10 h-10 rounded-full bg-slate-700 overflow-hidden">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Marcus_Aurelius_Glyptothek_Munich_Inv267.jpg/100px-Marcus_Aurelius_Glyptothek_Munich_Inv267.jpg" class="w-full h-full object-cover" alt="Marcus Aurelius Bust" loading="lazy">
-                            </div>
-                            <div>
-                                <div class="font-bold text-white">Marcus Aurelius</div>
-                                <div class="text-xs text-slate-400">The Emperor</div>
-                            </div>
-                        </button>
-
-                         <button onclick="selectPhilosopher('aristotle')" id="btn-aristotle" class="w-full text-left p-3 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-3 border border-transparent hover:border-white/10 focus:outline-none focus:ring-1 focus:ring-gold-500">
-                            <div class="w-10 h-10 rounded-full bg-slate-700 overflow-hidden">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/100px-Aristotle_Altemps_Inv8575.jpg" class="w-full h-full object-cover" alt="Aristotle Bust" loading="lazy">
-                            </div>
-                            <div>
-                                <div class="font-bold text-white">Aristotle</div>
-                                <div class="text-xs text-slate-400">The Polymath</div>
-                            </div>
-                        </button>
-                    </div>
-                    
-                    <!-- API Key Settings -->
-                    <div class="pt-4 border-t border-white/10 mt-2">
-                        <div class="flex items-center justify-between">
-                            <button onclick="toggleSettings()" class="flex items-center gap-2 text-xs text-slate-500 hover:text-gold-400 transition-colors">
-                                <i data-lucide="settings" class="w-3 h-3"></i> Configure API Key
+                <div class="flex flex-col lg:flex-row h-[600px] bg-brand-950 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                    <!-- Sidebar -->
+                    <div class="lg:w-1/4 bg-brand-900 border-r border-white/5 p-4 flex flex-col">
+                        <h3 class="text-white font-bold mb-4 px-2">Philosophers</h3>
+                        <div class="space-y-2 overflow-y-auto flex-1 custom-scrollbar" role="tablist">
+                            <!-- Socrates -->
+                            <button onclick="selectPhilosopher('socrates')" id="btn-socrates" class="w-full text-left p-3 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-3 border border-transparent active-philosopher bg-white/10 border-gold-500/30" role="tab" aria-selected="true" aria-controls="chat-panel">
+                                <div class="w-10 h-10 rounded-full bg-slate-700 overflow-hidden">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Socrate_du_Louvre.jpg/100px-Socrate_du_Louvre.jpg" class="w-full h-full object-cover" alt="Bust of Socrates" loading="lazy" width="40" height="40">
+                                </div>
+                                <div>
+                                    <div class="font-bold text-white">Socrates</div>
+                                    <div class="text-xs text-slate-400">The Gadfly</div>
+                                </div>
                             </button>
-                            <button onclick="showHelpModal()" class="text-slate-500 hover:text-white" title="Where do I get a key?">
-                                <i data-lucide="help-circle" class="w-3 h-3"></i>
+                            
+                            <!-- Nietzsche -->
+                            <button onclick="selectPhilosopher('nietzsche')" id="btn-nietzsche" class="w-full text-left p-3 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-3 border border-transparent" role="tab" aria-selected="false">
+                                <div class="w-10 h-10 rounded-full bg-slate-700 overflow-hidden">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/100px-Nietzsche187a.jpg" class="w-full h-full object-cover" alt="Portrait of Friedrich Nietzsche" loading="lazy" width="40" height="40">
+                                </div>
+                                <div>
+                                    <div class="font-bold text-white">Nietzsche</div>
+                                    <div class="text-xs text-slate-400">The Iconoclast</div>
+                                </div>
+                            </button>
+
+                            <!-- Marcus Aurelius (Updated Image) -->
+                            <button onclick="selectPhilosopher('aurelius')" id="btn-aurelius" class="w-full text-left p-3 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-3 border border-transparent" role="tab" aria-selected="false">
+                                <div class="w-10 h-10 rounded-full bg-slate-700 overflow-hidden">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Bust_of_Marcus_Aurelius_in_the_Glyptothek%2C_Munich.jpg/220px-Bust_of_Marcus_Aurelius_in_the_Glyptothek%2C_Munich.jpg" class="w-full h-full object-cover" alt="Bust of Marcus Aurelius" loading="lazy" width="40" height="40">
+                                </div>
+                                <div>
+                                    <div class="font-bold text-white">Marcus Aurelius</div>
+                                    <div class="text-xs text-slate-400">The Emperor</div>
+                                </div>
+                            </button>
+                            
+                             <!-- Aristotle -->
+                             <button onclick="selectPhilosopher('aristotle')" id="btn-aristotle" class="w-full text-left p-3 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-3 border border-transparent" role="tab" aria-selected="false">
+                                <div class="w-10 h-10 rounded-full bg-slate-700 overflow-hidden">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/100px-Aristotle_Altemps_Inv8575.jpg" class="w-full h-full object-cover" alt="Bust of Aristotle" loading="lazy" width="40" height="40">
+                                </div>
+                                <div>
+                                    <div class="font-bold text-white">Aristotle</div>
+                                    <div class="text-xs text-slate-400">The Polymath</div>
+                                </div>
                             </button>
                         </div>
-                        <div id="api-settings" class="hidden mt-2 p-2 bg-black/20 rounded">
-                            <input type="password" id="gemini-key-input" placeholder="Paste Gemini API Key" class="w-full bg-transparent border border-white/10 rounded px-2 py-1 text-xs text-white mb-2 focus:border-gold-500 focus:outline-none">
-                            <button onclick="saveApiKey()" class="w-full bg-gold-500/20 text-gold-400 text-xs py-1 rounded hover:bg-gold-500/30">Save Key</button>
-                            <button onclick="removeApiKey()" class="w-full mt-2 text-red-400 text-xs py-1 hover:underline">Remove Key</button>
+                        
+                        <!-- API Key Settings -->
+                        <div class="pt-4 border-t border-white/10 mt-2">
+                            <div class="flex items-center justify-between">
+                                <button onclick="toggleSettings()" class="flex items-center gap-2 text-xs text-slate-500 hover:text-gold-400 transition-colors" aria-label="Configure API Settings">
+                                    <i data-lucide="settings" class="w-3 h-3"></i> Configure API Key
+                                </button>
+                                <button onclick="showHelpModal()" class="text-slate-500 hover:text-white" aria-label="Help regarding API Keys">
+                                    <i data-lucide="help-circle" class="w-3 h-3"></i>
+                                </button>
+                            </div>
+                            <div id="api-settings" class="hidden mt-2 p-3 bg-black/40 rounded border border-white/10">
+                                <label for="gemini-key-input" class="sr-only">Gemini API Key</label>
+                                <input type="password" id="gemini-key-input" placeholder="Paste Gemini API Key" class="w-full bg-transparent border border-white/10 rounded px-2 py-1 text-xs text-white mb-2 focus:border-gold-500 focus:outline-none">
+                                <button onclick="saveApiKey()" class="w-full bg-gold-500/20 text-gold-400 text-xs py-1 rounded hover:bg-gold-500/30 mb-1">Save Key</button>
+                                <button onclick="removeApiKey()" class="w-full text-red-400 text-xs py-1 hover:underline">Remove Key</button>
+                                <p class="text-[10px] text-slate-500 mt-2 leading-tight">
+                                    <i data-lucide="lock" class="inline w-3 h-3"></i> Security: Key is stored in your browser. For extra safety, restrict key to this URL in Google Cloud Console.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Area -->
+                    <div class="lg:w-3/4 flex flex-col bg-brand-950 relative" role="tabpanel" id="chat-panel">
+                        <!-- Chat Header -->
+                        <div class="p-4 border-b border-white/5 flex items-center justify-between bg-brand-950/50 backdrop-blur">
+                            <div class="flex items-center gap-3">
+                                <div id="status-indicator" class="w-2 h-2 rounded-full bg-yellow-500" title="Simulation Mode"></div>
+                                <span class="text-white font-bold" id="chat-header-name">Socrates</span>
+                                <span id="status-text" class="text-xs text-slate-500">(Simulation Mode)</span>
+                            </div>
+                            <button onclick="clearChat()" class="text-slate-500 hover:text-white" title="Clear Chat" aria-label="Clear Chat History">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+
+                        <!-- Messages -->
+                        <div id="chat-messages" class="flex-1 p-6 overflow-y-auto space-y-4 custom-scrollbar bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]">
+                            <div class="flex justify-start message-bubble">
+                                <div class="bg-brand-800 text-slate-200 p-4 rounded-2xl rounded-tl-none max-w-[80%] border border-white/5">
+                                    <p>Greetings. I am Socrates. I know only one thing: that I know nothing. What is it that creates turmoil in your mind today?</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Input Area -->
+                        <div class="p-4 bg-brand-900 border-t border-white/5">
+                            <form id="chat-form" class="flex gap-2 relative">
+                                <label for="chat-input" class="sr-only">Type your message</label>
+                                <input type="text" id="chat-input" class="flex-1 bg-brand-950 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Ask a question..." autocomplete="off">
+                                <button type="submit" class="bg-gold-500 hover:bg-gold-400 text-brand-950 font-bold px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed" id="send-btn" aria-label="Send Message">
+                                    <i data-lucide="send" class="w-5 h-5"></i>
+                                </button>
+                            </form>
+                            <p class="text-[10px] text-slate-600 mt-2 text-center" id="ai-disclaimer">AI generated responses can be inaccurate. Logic implies verification.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Chat Area -->
-                <div class="lg:w-3/4 flex flex-col bg-brand-950 relative">
-                    <!-- Chat Header -->
-                    <div class="p-4 border-b border-white/5 flex items-center justify-between bg-brand-950/50 backdrop-blur">
-                        <div class="flex items-center gap-3">
-                            <!-- Status Indicator -->
-                            <div id="status-indicator" class="w-2 h-2 rounded-full bg-yellow-500 animate-pulse" title="Simulation Mode"></div>
-                            <span class="text-white font-bold" id="chat-header-name">Socrates</span>
-                            <span id="status-text" class="text-xs text-slate-500">(Simulation Mode)</span>
+        <!-- Branches of Philosophy -->
+        <section id="branches" class="py-24 px-4 max-w-7xl mx-auto" aria-labelledby="branches-heading">
+            <div class="text-center mb-16">
+                <span class="text-gold-400 text-sm font-bold tracking-widest uppercase">The Structure of Thought</span>
+                <h2 id="branches-heading" class="text-4xl md:text-5xl font-display font-bold text-white mt-2 mb-6">Branches of Philosophy</h2>
+                <div class="w-24 h-1 bg-gold-500 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <article class="group relative bg-brand-900 border border-white/5 p-8 rounded-lg hover:-translate-y-2 transition-transform duration-300 hover:border-gold-500/30 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-brand-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gold-500 group-hover:text-brand-950 transition-colors">
+                            <i data-lucide="globe-2" class="w-6 h-6"></i>
                         </div>
-                        <button onclick="clearChat()" class="text-slate-500 hover:text-white" title="Clear Chat">
-                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        <h3 class="text-2xl font-display font-bold text-white mb-3">Metaphysics</h3>
+                        <p class="text-slate-400 leading-relaxed">The study of the fundamental nature of reality, existence, and the relationship between mind and matter.</p>
+                    </div>
+                </article>
+                <!-- Additional Cards (simplified for length, using same accessible pattern) -->
+                 <article class="group relative bg-brand-900 border border-white/5 p-8 rounded-lg hover:-translate-y-2 transition-transform duration-300 hover:border-gold-500/30 overflow-hidden">
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-brand-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gold-500 group-hover:text-brand-950 transition-colors">
+                            <i data-lucide="scale" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-white mb-3">Ethics</h3>
+                        <p class="text-slate-400 leading-relaxed">Moral philosophy that involves systematizing, defending, and recommending concepts of right and wrong conduct.</p>
+                    </div>
+                </article>
+                <article class="group relative bg-brand-900 border border-white/5 p-8 rounded-lg hover:-translate-y-2 transition-transform duration-300 hover:border-gold-500/30 overflow-hidden">
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-brand-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gold-500 group-hover:text-brand-950 transition-colors">
+                            <i data-lucide="brain" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-white mb-3">Epistemology</h3>
+                        <p class="text-slate-400 leading-relaxed">The theory of knowledge, especially with regard to its methods, validity, and scope.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Community Articles -->
+        <section id="articles" class="py-24 px-4 max-w-7xl mx-auto" aria-labelledby="articles-heading">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+                <div>
+                    <span class="text-gold-400 text-sm font-bold tracking-widest uppercase">The Agora</span>
+                    <h2 id="articles-heading" class="text-4xl font-display font-bold text-white mt-2">Community Articles</h2>
+                </div>
+                <div class="flex bg-brand-900 p-1 rounded-lg border border-white/10" role="tablist">
+                    <button onclick="switchTab('read')" id="tab-read" class="px-6 py-2 rounded-md text-sm font-bold bg-brand-700 text-white shadow-sm transition-all focus:outline-none focus:ring-1 focus:ring-white" role="tab" aria-selected="true" aria-controls="read-view">Read</button>
+                    <button onclick="switchTab('write')" id="tab-write" class="px-6 py-2 rounded-md text-sm font-bold text-slate-400 hover:text-white transition-all focus:outline-none focus:ring-1 focus:ring-white" role="tab" aria-selected="false" aria-controls="write-view">Write</button>
+                </div>
+            </div>
+
+            <!-- Read Mode -->
+            <div id="read-view" class="grid grid-cols-1 md:grid-cols-2 gap-8 transition-opacity duration-300" role="tabpanel">
+                <!-- Example Article 1 -->
+                <article class="bg-brand-900 border border-white/5 rounded-xl p-8 hover:border-gold-500/30 transition-all group">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-400 font-bold">JD</div>
+                        <div>
+                            <p class="text-white text-sm font-bold">John Doe</p>
+                            <p class="text-slate-500 text-xs">2 hours ago</p>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">Modern Stoicism in Tech</h3>
+                    <p class="text-slate-400 leading-relaxed mb-6 line-clamp-3">
+                        How ancient philosophy helps us navigate the complexities of modern software development and digital burnout.
+                    </p>
+                    <button onclick="openArticleModal('Modern Stoicism in Tech', 'John Doe', 'How ancient philosophy helps us navigate the complexities of modern software development and digital burnout. The dichotomy of control is more relevant than ever when dealing with server outages. By focusing only on what we can control—our code, our reactions, and our testing—we can reduce anxiety.')" class="text-gold-400 text-sm font-bold hover:underline focus:outline-none">Read Full Article</button>
+                </article>
+
+                <!-- Dynamic Container -->
+                <div id="dynamic-articles-container" class="contents"></div>
+            </div>
+
+            <!-- Write Mode -->
+            <div id="write-view" class="hidden max-w-3xl mx-auto bg-brand-900 border border-white/10 rounded-xl p-8 shadow-2xl" role="tabpanel">
+                <h3 class="text-2xl font-bold text-white mb-6">Contribute to the Dialogue</h3>
+                <div class="bg-blue-900/20 border border-blue-500/30 p-4 rounded-lg mb-6 text-sm text-blue-200">
+                    <i data-lucide="info" class="inline w-4 h-4 mr-2"></i>
+                    <span class="font-bold">Publishing Workflow:</span> This site is static. "Publish (Local)" saves to your browser. To make it public, use the <strong>"Download Article"</strong> button to get a code snippet you can commit to GitHub.
+                </div>
+                <form id="article-form" class="space-y-6">
+                    <div>
+                        <label for="article-title" class="block text-slate-400 text-sm font-bold mb-2">Title</label>
+                        <input type="text" id="article-title" class="w-full bg-brand-950 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Enter your article title..." required>
+                    </div>
+                    <div>
+                        <label for="article-author" class="block text-slate-400 text-sm font-bold mb-2">Author Name</label>
+                        <input type="text" id="article-author" class="w-full bg-brand-950 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Your name (or pseudonym)">
+                    </div>
+                    <div>
+                        <label for="article-content" class="block text-slate-400 text-sm font-bold mb-2">Content</label>
+                        <textarea id="article-content" rows="6" class="w-full bg-brand-950 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Share your thoughts..." required></textarea>
+                    </div>
+                    <div class="flex flex-col sm:flex-row justify-end gap-4">
+                        <button type="button" onclick="downloadArticleSnippet()" class="px-6 py-3 border border-white/10 text-slate-300 hover:bg-white/5 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <i data-lucide="download" class="w-4 h-4"></i> Download Article
+                        </button>
+                        <button type="submit" class="px-8 py-3 bg-gold-500 hover:bg-gold-400 text-brand-950 font-bold rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-4 h-4"></i> Publish (Local)
                         </button>
                     </div>
+                </form>
+            </div>
+        </section>
 
-                    <!-- Messages -->
-                    <div id="chat-messages" class="flex-1 p-6 overflow-y-auto space-y-4 custom-scrollbar bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]">
-                        <!-- Intro Message -->
-                        <div class="flex justify-start message-bubble">
-                            <div class="bg-brand-800 text-slate-200 p-4 rounded-2xl rounded-tl-none max-w-[80%] border border-white/5">
-                                <p>Greetings. I am Socrates. I know only one thing: that I know nothing. What is it that creates turmoil in your mind today?</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Input Area -->
-                    <div class="p-4 bg-brand-900 border-t border-white/5">
-                        <form id="chat-form" class="flex gap-2 relative">
-                            <input type="text" id="chat-input" class="flex-1 bg-brand-950 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Ask a question..." autocomplete="off">
-                            <button type="submit" class="bg-gold-500 hover:bg-gold-400 text-brand-950 font-bold px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed" id="send-btn" aria-label="Send Message">
-                                <i data-lucide="send" class="w-5 h-5"></i>
+        <!-- Newsletter (With proper attributes) -->
+        <section id="daily-stoic" class="py-24 px-4" aria-labelledby="newsletter-heading">
+            <div class="max-w-5xl mx-auto bg-slate-100 rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
+                <div class="md:w-1/2 p-12 flex flex-col justify-center bg-brand-950 text-white relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                    <div class="relative z-10">
+                        <h3 id="newsletter-heading" class="text-3xl font-display font-bold mb-4">Join the Thinkers</h3>
+                        <p class="text-slate-300 mb-8">Receive a hand-picked philosophical concept, a quote, and a practical exercise in your inbox every morning.</p>
+                        <!-- Form action points to nowhere, allowing you to plug in Formspree/Mailchimp easily -->
+                        <form class="space-y-4" onsubmit="event.preventDefault(); showToast('Subscribed! (Simulated - Connect a backend to make this real).');" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                            <label for="email-subscribe" class="sr-only">Email Address</label>
+                            <input type="email" id="email-subscribe" name="email" placeholder="Your email address" class="w-full px-4 py-3 rounded bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:border-gold-500 transition-colors" required aria-required="true">
+                            <button type="submit" class="w-full py-3 bg-gold-500 hover:bg-gold-400 text-brand-950 font-bold rounded transition-colors focus:outline-none focus:ring-2 focus:ring-white">
+                                Subscribe
                             </button>
                         </form>
-                        <p class="text-[10px] text-slate-600 mt-2 text-center">AI generated responses can be inaccurate. Logic implies verification.</p>
+                        <p class="text-xs text-slate-500 mt-4">We respect your privacy. No spam.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Branches of Philosophy -->
-    <section id="branches" class="py-24 px-4 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <span class="text-gold-400 text-sm font-bold tracking-widest uppercase">The Structure of Thought</span>
-            <h2 class="text-4xl md:text-5xl font-display font-bold text-white mt-2 mb-6">Branches of Philosophy</h2>
-            <div class="w-24 h-1 bg-gold-500 mx-auto"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Cards -->
-            <div class="group relative bg-brand-900 border border-white/5 p-8 rounded-lg hover:-translate-y-2 transition-transform duration-300 hover:border-gold-500/30 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div class="relative z-10">
-                    <div class="w-12 h-12 bg-brand-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gold-500 group-hover:text-brand-950 transition-colors">
-                        <i data-lucide="globe-2" class="w-6 h-6"></i>
+                <div class="md:w-1/2 bg-slate-200 text-brand-950 p-12 flex flex-col justify-center items-start">
+                    <div class="mb-6">
+                        <span class="bg-brand-950 text-white px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full">Concept of the Day</span>
                     </div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-3">Metaphysics</h3>
-                    <p class="text-slate-400 leading-relaxed mb-4">The study of the fundamental nature of reality, existence, and the relationship between mind and matter.</p>
+                    <h4 class="text-3xl font-serif font-bold mb-4">Amor Fati</h4>
+                    <p class="text-brand-800 leading-relaxed mb-6">
+                        "Love of fate." An attitude in which one sees everything that happens in one's life, including suffering and loss, as good or, at the very least, necessary.
+                    </p>
                 </div>
             </div>
-             <div class="group relative bg-brand-900 border border-white/5 p-8 rounded-lg hover:-translate-y-2 transition-transform duration-300 hover:border-gold-500/30 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div class="relative z-10">
-                    <div class="w-12 h-12 bg-brand-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gold-500 group-hover:text-brand-950 transition-colors">
-                        <i data-lucide="scale" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-3">Ethics</h3>
-                    <p class="text-slate-400 leading-relaxed mb-4">Moral philosophy that involves systematizing, defending, and recommending concepts of right and wrong conduct.</p>
-                </div>
-            </div>
-             <div class="group relative bg-brand-900 border border-white/5 p-8 rounded-lg hover:-translate-y-2 transition-transform duration-300 hover:border-gold-500/30 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div class="relative z-10">
-                    <div class="w-12 h-12 bg-brand-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gold-500 group-hover:text-brand-950 transition-colors">
-                        <i data-lucide="brain" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-3">Epistemology</h3>
-                    <p class="text-slate-400 leading-relaxed mb-4">The theory of knowledge, especially with regard to its methods, validity, and scope.</p>
-                </div>
-            </div>
-             <div class="group relative bg-brand-900 border border-white/5 p-8 rounded-lg hover:-translate-y-2 transition-transform duration-300 hover:border-gold-500/30 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div class="relative z-10">
-                    <div class="w-12 h-12 bg-brand-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gold-500 group-hover:text-brand-950 transition-colors">
-                        <i data-lucide="binary" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-3">Logic</h3>
-                    <p class="text-slate-400 leading-relaxed mb-4">The study of correct reasoning. It provides the rules for valid inferences and argumentation.</p>
-                </div>
-            </div>
-             <div class="group relative bg-brand-900 border border-white/5 p-8 rounded-lg hover:-translate-y-2 transition-transform duration-300 hover:border-gold-500/30 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div class="relative z-10">
-                    <div class="w-12 h-12 bg-brand-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gold-500 group-hover:text-brand-950 transition-colors">
-                        <i data-lucide="palette" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-3">Aesthetics</h3>
-                    <p class="text-slate-400 leading-relaxed mb-4">The study of beauty and taste, as well as the philosophy of art.</p>
-                </div>
-            </div>
-             <div class="group relative bg-brand-900 border border-white/5 p-8 rounded-lg hover:-translate-y-2 transition-transform duration-300 hover:border-gold-500/30 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div class="relative z-10">
-                    <div class="w-12 h-12 bg-brand-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gold-500 group-hover:text-brand-950 transition-colors">
-                        <i data-lucide="users" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-3">Political</h3>
-                    <p class="text-slate-400 leading-relaxed mb-4">The study of government, addressing questions about the nature, scope, and legitimacy of public agents and institutions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Great Minds (Timeline/Highlights) -->
-    <section id="philosophers" class="py-24 bg-brand-900 border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div>
-                    <span class="text-gold-400 text-sm font-bold tracking-widest uppercase">The Giants</span>
-                    <h2 class="text-4xl font-display font-bold text-white mt-2">Architects of Thought</h2>
-                </div>
-                <button onclick="openTimelineModal()" class="text-slate-400 hover:text-white flex items-center gap-2 text-sm border-b border-transparent hover:border-white transition-all pb-1 focus:outline-none focus:text-white">
-                    View Complete Timeline <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </button>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Philosopher Cards -->
-                <div class="bg-brand-950 p-6 rounded-lg border border-white/5 hover:border-gold-500/50 transition-all group">
-                    <div class="mb-4 overflow-hidden rounded-md h-48 bg-slate-800 relative group">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Socrate_du_Louvre.jpg/480px-Socrate_du_Louvre.jpg" alt="Socrates" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
-                        <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
-                            <span class="text-white font-bold">Socrates</span>
-                        </div>
-                    </div>
-                    <p class="text-xs text-gold-400 uppercase tracking-wider mb-2">470–399 BC • Athens</p>
-                    <p class="text-slate-400 text-sm mb-4">The founder of Western moral philosophy. Known for the Socratic method and his trial.</p>
-                </div>
-
-                <div class="bg-brand-950 p-6 rounded-lg border border-white/5 hover:border-gold-500/50 transition-all group">
-                    <div class="mb-4 overflow-hidden rounded-md h-48 bg-slate-800 relative group">
-                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/480px-Aristotle_Altemps_Inv8575.jpg" alt="Aristotle" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
-                         <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
-                            <span class="text-white font-bold">Aristotle</span>
-                        </div>
-                    </div>
-                    <p class="text-xs text-gold-400 uppercase tracking-wider mb-2">384–322 BC • Stagira</p>
-                    <p class="text-slate-400 text-sm mb-4">A polymath who laid the groundwork for logic, biology, and ethics.</p>
-                </div>
-
-                <div class="bg-brand-950 p-6 rounded-lg border border-white/5 hover:border-gold-500/50 transition-all group">
-                    <div class="mb-4 overflow-hidden rounded-md h-48 bg-slate-800 relative group">
-                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Kant_gemaelde_3.jpg/480px-Kant_gemaelde_3.jpg" alt="Immanuel Kant" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
-                         <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
-                            <span class="text-white font-bold">Immanuel Kant</span>
-                        </div>
-                    </div>
-                    <p class="text-xs text-gold-400 uppercase tracking-wider mb-2">1724–1804 • Prussia</p>
-                    <p class="text-slate-400 text-sm mb-4">Synthesized rationalism and empiricism. Known for the Categorical Imperative.</p>
-                </div>
-
-                <div class="bg-brand-950 p-6 rounded-lg border border-white/5 hover:border-gold-500/50 transition-all group">
-                    <div class="mb-4 overflow-hidden rounded-md h-48 bg-slate-800 relative group">
-                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/480px-Nietzsche187a.jpg" alt="Friedrich Nietzsche" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
-                         <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
-                            <span class="text-white font-bold">F. Nietzsche</span>
-                        </div>
-                    </div>
-                    <p class="text-xs text-gold-400 uppercase tracking-wider mb-2">1844–1900 • Germany</p>
-                    <p class="text-slate-400 text-sm mb-4">Challenged Christian morality and introduced the concept of the Übermensch.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Community Articles Section -->
-    <section id="articles" class="py-24 px-4 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
-            <div>
-                <span class="text-gold-400 text-sm font-bold tracking-widest uppercase">The Agora</span>
-                <h2 class="text-4xl font-display font-bold text-white mt-2">Community Articles</h2>
-            </div>
-            <div class="flex bg-brand-900 p-1 rounded-lg border border-white/10">
-                <button onclick="switchTab('read')" id="tab-read" class="px-6 py-2 rounded-md text-sm font-bold bg-brand-700 text-white shadow-sm transition-all focus:outline-none focus:ring-1 focus:ring-white">Read</button>
-                <button onclick="switchTab('write')" id="tab-write" class="px-6 py-2 rounded-md text-sm font-bold text-slate-400 hover:text-white transition-all focus:outline-none focus:ring-1 focus:ring-white">Write</button>
-            </div>
-        </div>
-
-        <!-- Read Mode -->
-        <div id="read-view" class="grid grid-cols-1 md:grid-cols-2 gap-8 transition-opacity duration-300">
-            
-            <!-- Article 1 -->
-            <article class="bg-brand-900 border border-white/5 rounded-xl p-8 hover:border-gold-500/30 transition-all group">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-400 font-bold">JD</div>
-                    <div>
-                        <p class="text-white text-sm font-bold">John Doe</p>
-                        <p class="text-slate-500 text-xs">2 hours ago</p>
-                    </div>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">Modern Stoicism in Tech</h3>
-                <p class="text-slate-400 leading-relaxed mb-6 line-clamp-3">
-                    How ancient philosophy helps us navigate the complexities of modern software development and digital burnout. The dichotomy of control is more relevant than ever when dealing with server outages.
-                </p>
-                <button onclick="openArticleModal('Modern Stoicism in Tech', 'John Doe', 'How ancient philosophy helps us navigate the complexities of modern software development and digital burnout. The dichotomy of control is more relevant than ever when dealing with server outages. By focusing only on what we can control—our code, our reactions, and our testing—we can reduce anxiety. Epictetus would have been a great debugger.')" class="text-gold-400 text-sm font-bold hover:underline focus:outline-none">Read Full Article</button>
-            </article>
-
-            <!-- Article 2 -->
-            <article class="bg-brand-900 border border-white/5 rounded-xl p-8 hover:border-gold-500/30 transition-all group">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 rounded-full bg-brand-700 flex items-center justify-center text-slate-300 font-bold">AS</div>
-                    <div>
-                        <p class="text-white text-sm font-bold">Alice Smith</p>
-                        <p class="text-slate-500 text-xs">1 day ago</p>
-                    </div>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">The Ethics of AI</h3>
-                <p class="text-slate-400 leading-relaxed mb-6 line-clamp-3">
-                    Examining the moral implications of artificial intelligence through the lens of Kantian ethics. Are algorithms capable of moral duty?
-                </p>
-                 <button onclick="openArticleModal('The Ethics of AI', 'Alice Smith', 'Examining the moral implications of artificial intelligence through the lens of Kantian ethics. Are algorithms capable of moral duty? If an AI acts, does it act from a maxim that can be universalized? This article explores the Categorical Imperative as applied to Large Language Models and the future of machine sentience.')" class="text-gold-400 text-sm font-bold hover:underline focus:outline-none">Read Full Article</button>
-            </article>
-
-            <!-- Article 3: Welcome -->
-            <article class="bg-brand-900 border border-white/5 rounded-xl p-8 hover:border-gold-500/30 transition-all group border-gold-500/20">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 rounded-full bg-brand-700 flex items-center justify-center text-slate-300 font-bold">TP</div>
-                    <div>
-                        <p class="text-white text-sm font-bold">Think Philosophy</p>
-                        <p class="text-slate-500 text-xs">Welcome Post</p>
-                    </div>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">Join the Discussion</h3>
-                <p class="text-slate-400 leading-relaxed mb-6 line-clamp-3">
-                    We welcome all perspectives. If you have an essay, a critique, or a thought experiment, please share it. Click the 'Write' tab to draft your own article and add it to the site.
-                </p>
-                 <button onclick="openArticleModal('Join the Discussion', 'Think Philosophy', 'We believe that philosophy belongs to everyone, not just the academics. <br><br>Whether you are interested in the ethics of technology, the metaphysics of consciousness, or political theory, your voice matters here. <br><br>To contribute, simply go to the Write tab, draft your article, and use the Export button to get the code needed to add it permanently to this repository.')" class="text-gold-400 text-sm font-bold hover:underline focus:outline-none">Read Full Article</button>
-            </article>
-            
-            <!-- Dynamic Articles from Local Storage -->
-            <div id="dynamic-articles-container" class="contents"></div>
-        </div>
-
-        <!-- Write Mode (Hidden by default) -->
-        <div id="write-view" class="hidden max-w-3xl mx-auto bg-brand-900 border border-white/10 rounded-xl p-8 shadow-2xl">
-            <h3 class="text-2xl font-bold text-white mb-6">Contribute to the Dialogue</h3>
-            <div class="bg-blue-900/20 border border-blue-500/30 p-4 rounded-lg mb-6 text-sm text-blue-200">
-                <i data-lucide="info" class="inline w-4 h-4 mr-2"></i>
-                <span class="font-bold">Developer Mode:</span> This site is static. "Publishing" here saves to your local browser. To make it public, use the "Export for GitHub" button below to generate code you can add to the repository.
-            </div>
-            <form id="article-form" class="space-y-6">
-                <div>
-                    <label class="block text-slate-400 text-sm font-bold mb-2">Title</label>
-                    <input type="text" id="article-title" class="w-full bg-brand-950 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Enter your article title..." required>
-                </div>
-                <div>
-                    <label class="block text-slate-400 text-sm font-bold mb-2">Author Name</label>
-                    <input type="text" id="article-author" class="w-full bg-brand-950 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Your name (or pseudonym)">
-                </div>
-                <div>
-                    <label class="block text-slate-400 text-sm font-bold mb-2">Content</label>
-                    <textarea id="article-content" rows="6" class="w-full bg-brand-950 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Share your thoughts..." required></textarea>
-                </div>
-                <div class="flex flex-col sm:flex-row justify-end gap-4">
-                     <button type="button" onclick="exportArticle()" class="px-6 py-3 border border-white/10 text-slate-300 hover:bg-white/5 rounded-lg transition-colors flex items-center justify-center gap-2">
-                        <i data-lucide="code" class="w-4 h-4"></i> Export for GitHub
-                    </button>
-                    <button type="submit" class="px-8 py-3 bg-gold-500 hover:bg-gold-400 text-brand-950 font-bold rounded-lg transition-colors flex items-center justify-center gap-2">
-                        <i data-lucide="send" class="w-4 h-4"></i> Publish (Local)
-                    </button>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <!-- Daily Stoic / Newsletter -->
-    <section id="daily-stoic" class="py-24 px-4">
-        <div class="max-w-5xl mx-auto bg-slate-100 rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
-            <div class="md:w-1/2 p-12 flex flex-col justify-center bg-brand-950 text-white relative overflow-hidden">
-                <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                <div class="relative z-10">
-                    <h3 class="text-3xl font-display font-bold mb-4">Join the Thinkers</h3>
-                    <p class="text-slate-300 mb-8">Receive a hand-picked philosophical concept, a quote, and a practical exercise in your inbox every morning.</p>
-                    <form class="space-y-4" onsubmit="event.preventDefault(); showToast('Subscribed! Check your inbox (simulated).');">
-                        <input type="email" placeholder="Your email address" class="w-full px-4 py-3 rounded bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:border-gold-500 transition-colors" required>
-                        <button type="submit" class="w-full py-3 bg-gold-500 hover:bg-gold-400 text-brand-950 font-bold rounded transition-colors focus:outline-none focus:ring-2 focus:ring-white">
-                            Subscribe
-                        </button>
-                    </form>
-                    <p class="text-xs text-slate-500 mt-4">No spam. Just pure wisdom.</p>
-                </div>
-            </div>
-            <div class="md:w-1/2 bg-slate-200 text-brand-950 p-12 flex flex-col justify-center items-start">
-                <div class="mb-6">
-                    <span class="bg-brand-950 text-white px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full">Concept of the Day</span>
-                </div>
-                <h4 class="text-3xl font-serif font-bold mb-4">Amor Fati</h4>
-                <p class="text-brand-800 leading-relaxed mb-6">
-                    "Love of fate." An attitude in which one sees everything that happens in one's life, including suffering and loss, as good or, at the very least, necessary. It is a mindset of embracing reality rather than fighting it.
-                </p>
-                <div class="border-l-4 border-gold-500 pl-4 italic text-brand-700">
-                    "Not merely to bear what is necessary, still less conceal it... but love it."
-                    <br><span class="text-sm font-bold not-italic mt-2 block">- Friedrich Nietzsche</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-brand-950 border-t border-white/10 pt-16 pb-8">
@@ -622,92 +489,60 @@
                     <div class="flex space-x-4">
                         <a href="https://twitter.com" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors" aria-label="Twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
                         <a href="https://github.com" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
-                        <button onclick="openGenericModal('Reading List', 'Recommended Readings:<br><br>- Meditations by Marcus Aurelius<br>- Beyond Good and Evil by Nietzsche<br>- The Republic by Plato')" class="text-slate-400 hover:text-white transition-colors" aria-label="Reading List"><i data-lucide="book" class="w-5 h-5"></i></button>
                     </div>
                 </div>
                 
-                <div>
-                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Explore</h4>
-                    <ul class="space-y-2 text-slate-400 text-sm">
-                        <li><button onclick="openGenericModal('All Topics', 'We cover everything from Metaphysics to Ethics. Check the branches section above.')" class="hover:text-gold-400 transition-colors text-left focus:outline-none">All Topics</button></li>
-                        <li><button onclick="openTimelineModal()" class="hover:text-gold-400 transition-colors text-left focus:outline-none">Timeline</button></li>
-                        <li><button onclick="openGenericModal('Reading Lists', 'Coming Soon! We are curating the best texts from Plato to Sartre.')" class="hover:text-gold-400 transition-colors text-left focus:outline-none">Reading Lists</button></li>
-                    </ul>
-                </div>
-
-                <div>
+                <nav>
                     <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Community</h4>
                     <ul class="space-y-2 text-slate-400 text-sm">
-                        <li><button onclick="openGenericModal('About Us', 'Think Philosophy is an open-source initiative designed to bring deep thought to the digital age.')" class="hover:text-gold-400 transition-colors text-left focus:outline-none">About Us</button></li>
-                        <li><button onclick="openGenericModal('Support', 'For support, please open an issue on our GitHub repository.')" class="hover:text-gold-400 transition-colors text-left focus:outline-none">Support</button></li>
-                        <li><button onclick="openGenericModal('Privacy Policy', 'We do not collect personal data. Articles are stored in your local browser storage. AI chats require your own API key and are sent directly to Google servers.')" class="hover:text-gold-400 transition-colors text-left focus:outline-none">Privacy Policy</button></li>
+                        <li><button onclick="openGenericModal('About Us', 'Think Philosophy is an open-source initiative designed to bring deep thought to the digital age. Created with love and logic.')" class="hover:text-gold-400 transition-colors text-left focus:outline-none">About Us</button></li>
+                        <li><button onclick="openGenericModal('Privacy Policy', '<strong>1. Local Storage:</strong> We store your API key and drafts in your browser. We do not see them.<br><strong>2. Google API:</strong> If you use the chat, your text is sent to Google servers for processing.<br><strong>3. Cookies:</strong> We do not track you.')" class="hover:text-gold-400 transition-colors text-left focus:outline-none">Privacy Policy</button></li>
                     </ul>
-                </div>
+                </nav>
             </div>
             
             <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
-                <p>&copy; 2023 Think Philosophy. Open Source on GitHub.</p>
-                <p class="mt-2 md:mt-0">Built with Reason & Logic.</p>
+                <p>&copy; <span id="year">2023</span> Think Philosophy. Open Source on GitHub.</p>
+                <p class="mt-2 md:mt-0">Designed & Built by <span class="text-gold-400 font-bold tracking-wide">SANDESH SHRESTHA</span></p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>
+        // Update Copyright Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
         // Initialize Icons
         lucide.createIcons();
 
-        // 1. Navigation Scroll Spy & Smooth Scroll
-        const sections = document.querySelectorAll("section");
-        const navLinks = document.querySelectorAll(".nav-link");
-
-        window.onscroll = () => {
-            let current = "";
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 100) {
-                    current = section.getAttribute("id");
-                }
-            });
-
-            navLinks.forEach((li) => {
-                li.classList.remove("active");
-                if (li.getAttribute("href").includes(current)) {
-                    li.classList.add("active");
-                }
-            });
-
-             // Navbar Background
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-lg', 'bg-brand-950/95');
-                navbar.classList.remove('bg-brand-950/80');
-            } else {
-                navbar.classList.remove('shadow-lg', 'bg-brand-950/95');
-                navbar.classList.add('bg-brand-950/80');
-            }
-        };
-
-        // Mobile Menu
+        // Mobile Menu Logic
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileBtn.setAttribute('aria-expanded', 'true');
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileBtn.setAttribute('aria-expanded', 'false');
+            }
         });
-        
         function closeMobileMenu() {
             mobileMenu.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
         }
 
-        // 2. Modal System
-        function closeModal(e) {
+        // Modal System
+        function closeModal() {
             const overlay = document.getElementById('modal-overlay');
             const content = document.getElementById('modal-content');
             overlay.classList.add('opacity-0');
             content.classList.add('scale-95');
             setTimeout(() => {
                 overlay.classList.add('hidden');
-                document.body.style.overflow = 'auto'; // Re-enable scrolling
+                document.body.style.overflow = 'auto'; 
             }, 300);
         }
 
@@ -715,75 +550,40 @@
             const overlay = document.getElementById('modal-overlay');
             const content = document.getElementById('modal-content');
             const body = document.getElementById('modal-body');
-            
             body.innerHTML = htmlContent;
             overlay.classList.remove('hidden');
-            // Small delay to allow display:block to apply before transition
             requestAnimationFrame(() => {
                 overlay.classList.remove('opacity-0');
                 content.classList.remove('scale-95');
             });
-            document.body.style.overflow = 'hidden'; // Disable background scrolling
+            document.body.style.overflow = 'hidden';
         }
 
-        // Generic Modal
         function openGenericModal(title, text) {
-            showModal(`
-                <h3 class="text-3xl font-display font-bold text-white mb-4">${title}</h3>
-                <p class="text-slate-300 leading-relaxed">${text}</p>
-            `);
+            showModal(`<h3 class="text-3xl font-display font-bold text-white mb-4">${title}</h3><div class="text-slate-300 leading-relaxed">${text}</div>`);
         }
 
-        // Article Modal
         function openArticleModal(title, author, content) {
             showModal(`
-                <div class="border-b border-white/10 pb-4 mb-4">
-                    <span class="text-gold-400 text-sm font-bold tracking-widest uppercase">The Agora</span>
-                    <h3 class="text-3xl font-display font-bold text-white mt-2">${title}</h3>
-                    <p class="text-slate-500 text-sm mt-1">By ${author}</p>
-                </div>
-                <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed">
-                    <p>${content}</p>
-                    <p class="mt-8 pt-4 border-t border-white/10 italic text-slate-500 text-xs">This article is user-submitted content.</p>
-                </div>
+                <article>
+                    <div class="border-b border-white/10 pb-4 mb-4">
+                        <span class="text-gold-400 text-sm font-bold tracking-widest uppercase">The Agora</span>
+                        <h3 class="text-3xl font-display font-bold text-white mt-2">${title}</h3>
+                        <p class="text-slate-500 text-sm mt-1">By ${author}</p>
+                    </div>
+                    <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed">
+                        ${content}
+                        <p class="mt-8 pt-4 border-t border-white/10 italic text-slate-500 text-xs">This content is user-generated.</p>
+                    </div>
+                </article>
             `);
         }
 
-        // Timeline Modal
-        function openTimelineModal() {
-            const events = [
-                { year: "470 BC", title: "Birth of Socrates", desc: "The father of Western philosophy is born in Athens." },
-                { year: "399 BC", title: "Death of Socrates", desc: "Sentenced to death by hemlock for 'corrupting the youth'." },
-                { year: "384 BC", title: "Birth of Aristotle", desc: "Born in Stagira, later tutors Alexander the Great." },
-                { year: "335 BC", title: "The Lyceum", desc: "Aristotle founds his own school in Athens." },
-                { year: "161 AD", title: "Marcus Aurelius", desc: "Becomes Emperor of Rome and writes 'Meditations'." },
-                { year: "1781", title: "Critique of Pure Reason", desc: "Kant publishes his magnum opus." },
-                { year: "1883", title: "Thus Spoke Zarathustra", desc: "Nietzsche publishes his major work on the Übermensch." },
-                { year: "1943", title: "Being and Nothingness", desc: "Sartre defines modern Existentialism." }
-            ];
-
-            let html = `<h3 class="text-3xl font-display font-bold text-white mb-8 text-center">Philosophical Timeline</h3><div class="space-y-8 border-l-2 border-gold-500/30 ml-4 pl-8">`;
-            
-            events.forEach(e => {
-                html += `
-                    <div class="relative group">
-                        <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-brand-900 border-2 border-gold-500 group-hover:bg-gold-500 transition-colors"></div>
-                        <span class="text-gold-400 font-bold text-sm">${e.year}</span>
-                        <h4 class="text-xl text-white font-bold">${e.title}</h4>
-                        <p class="text-slate-400 text-sm mt-1">${e.desc}</p>
-                    </div>
-                `;
-            });
-            html += `</div>`;
-            showModal(html);
-        }
-        
-        // Help Modal
         function showHelpModal() {
-            openGenericModal("How to get an API Key", "To use the AI chat with the real Gemini model, you need a Google API Key. <br><br>1. Go to <a href='https://aistudio.google.com/app/apikey' target='_blank' class='text-gold-400 hover:underline'>Google AI Studio</a>.<br>2. Click 'Create API key'.<br>3. Copy the key and paste it into the settings icon here.<br><br><strong>Don't want a key?</strong> No problem! The chat works in 'Simulation Mode' automatically.");
+            openGenericModal("How to get an API Key", "To use the chat with real intelligence, get a free key from <a href='https://aistudio.google.com/app/apikey' target='_blank' class='text-gold-400 hover:underline'>Google AI Studio</a>. Paste it in the settings. Otherwise, the chat runs in offline 'Simulation Mode'.");
         }
 
-        // 3. Toast Notifications
+        // Toast Notification
         function showToast(message) {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
@@ -791,7 +591,6 @@
             toast.innerHTML = `<i data-lucide="check-circle" class="w-5 h-5 text-gold-500"></i> ${message}`;
             container.appendChild(toast);
             lucide.createIcons();
-            
             setTimeout(() => {
                 toast.style.opacity = '0';
                 toast.style.transform = 'translateY(-20px)';
@@ -800,44 +599,36 @@
             }, 3000);
         }
 
-        // 4. Export for GitHub
-        function exportArticle() {
+        // Publishing: Download as File
+        function downloadArticleSnippet() {
             const title = document.getElementById('article-title').value;
             const author = document.getElementById('article-author').value || 'Anonymous';
             const content = document.getElementById('article-content').value;
             
-            if(!title || !content) {
-                showToast("Please write something first!");
-                return;
-            }
+            if(!title || !content) { showToast("Please write something first!"); return; }
 
             const cleanContent = content.replace(/'/g, "\\'").replace(/\n/g, '<br>');
-            const cleanTitle = title.replace(/'/g, "\\'");
-            const cleanAuthor = author.replace(/'/g, "\\'");
+            const fileContent = `
+<!-- PASTE THIS INTO index.html INSIDE THE #read-view DIV -->
+<article class="bg-brand-900 border border-white/5 rounded-xl p-8 hover:border-gold-500/30 transition-all group">
+    <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white font-bold">${author.charAt(0).toUpperCase()}</div>
+        <div><p class="text-white text-sm font-bold">${author}</p><p class="text-slate-500 text-xs">${new Date().toLocaleDateString()}</p></div>
+    </div>
+    <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">${title}</h3>
+    <p class="text-slate-400 leading-relaxed mb-6 line-clamp-3">${content}</p>
+    <button onclick="openArticleModal('${title.replace(/'/g, "\\'")}', '${author.replace(/'/g, "\\'")}', '${cleanContent}')" class="text-gold-400 text-sm font-bold hover:underline focus:outline-none">Read Full Article</button>
+</article>`;
 
-            const htmlCode = `
-            <!-- COPY THIS BLOCK -->
-            <article class="bg-brand-900 border border-white/5 rounded-xl p-8 hover:border-gold-500/30 transition-all group">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white font-bold">${author.charAt(0).toUpperCase()}</div>
-                    <div>
-                        <p class="text-white text-sm font-bold">${author}</p>
-                        <p class="text-slate-500 text-xs">${new Date().toLocaleDateString()}</p>
-                    </div>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">${title}</h3>
-                <p class="text-slate-400 leading-relaxed mb-6 line-clamp-3">${content}</p>
-                <button onclick="openArticleModal('${cleanTitle}', '${cleanAuthor}', '${cleanContent}')" class="text-gold-400 text-sm font-bold hover:underline focus:outline-none">Read Full Article</button>
-            </article>
-            <!-- END COPY -->
-            `;
-
-            navigator.clipboard.writeText(htmlCode).then(() => {
-                showToast("Code copied to clipboard! Paste it into index.html to publish.");
-            });
+            const blob = new Blob([fileContent], { type: "text/plain" });
+            const anchor = document.createElement("a");
+            anchor.href = URL.createObjectURL(blob);
+            anchor.download = "article-snippet.html";
+            anchor.click();
+            showToast("Snippet downloaded! Paste it into your HTML file on GitHub.");
         }
 
-        // Article Tabs Logic
+        // Tab Switching
         function switchTab(tab) {
             const readView = document.getElementById('read-view');
             const writeView = document.getElementById('write-view');
@@ -848,20 +639,20 @@
                 readView.classList.remove('hidden');
                 writeView.classList.add('hidden');
                 tabRead.classList.add('bg-brand-700', 'text-white', 'shadow-sm');
-                tabRead.classList.remove('text-slate-400');
+                tabRead.setAttribute('aria-selected', 'true');
                 tabWrite.classList.remove('bg-brand-700', 'text-white', 'shadow-sm');
-                tabWrite.classList.add('text-slate-400');
+                tabWrite.setAttribute('aria-selected', 'false');
             } else {
                 readView.classList.add('hidden');
                 writeView.classList.remove('hidden');
                 tabWrite.classList.add('bg-brand-700', 'text-white', 'shadow-sm');
-                tabWrite.classList.remove('text-slate-400');
+                tabWrite.setAttribute('aria-selected', 'true');
                 tabRead.classList.remove('bg-brand-700', 'text-white', 'shadow-sm');
-                tabRead.classList.add('text-slate-400');
+                tabRead.setAttribute('aria-selected', 'false');
             }
         }
 
-        // --- LOCAL STORAGE LOGIC ---
+        // Local Storage Articles
         document.addEventListener('DOMContentLoaded', () => {
              loadArticles();
              updateChatStatus();
@@ -873,6 +664,7 @@
             container.innerHTML = '';
             savedArticles.forEach(article => addArticleToDOM(article.title, article.author, article.content, article.date));
         }
+
         function addArticleToDOM(title, author, content, dateStr) {
              const container = document.getElementById('dynamic-articles-container');
              const cleanContent = content.replace(/"/g, '&quot;').replace(/'/g, "\\'").replace(/\n/g, '<br>');
@@ -882,10 +674,7 @@
                 <article class="bg-brand-900 border border-white/5 rounded-xl p-8 hover:border-gold-500/30 transition-all group animate-float">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-10 h-10 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-400 font-bold">${author.substring(0,2).toUpperCase()}</div>
-                        <div>
-                            <p class="text-white text-sm font-bold">${author}</p>
-                            <p class="text-slate-500 text-xs">${dateStr}</p>
-                        </div>
+                        <div><p class="text-white text-sm font-bold">${author}</p><p class="text-slate-500 text-xs">${dateStr}</p></div>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">${title}</h3>
                     <p class="text-slate-400 leading-relaxed mb-6 line-clamp-3">${content}</p>
@@ -912,48 +701,29 @@
             showToast('Article saved locally!');
         });
 
-        // --- AI CHAT LOGIC ---
+        // Chat Logic
         const philosophers = {
-            'socrates': { 
-                name: 'Socrates', 
-                intro: "Greetings. I am Socrates. I know only one thing: that I know nothing.", 
-                prompt: "You are Socrates. Use the Socratic Method. Ask questions.",
-                fallbacks: ["Why do you say that?", "What is virtue?", "Does that make it true?", "Examine your assumptions."]
-            },
-            'nietzsche': { 
-                name: 'Nietzsche', 
-                intro: "God is dead. Are you ready to stare into the abyss?", 
-                prompt: "You are Nietzsche. Speak of the Will to Power.",
-                fallbacks: ["That is slave morality.", "Become who you are!", "What does not kill me makes me stronger.", "God is dead."]
-            },
-            'aurelius': { 
-                name: 'Marcus Aurelius', 
-                intro: "The happiness of your life depends upon the quality of your thoughts.", 
-                prompt: "You are Marcus Aurelius. Speak of Stoicism.",
-                fallbacks: ["You have power over your mind.", "Accept what you cannot control.", "Death smiles at us all.", "Be a good man."]
-            },
-            'aristotle': { 
-                name: 'Aristotle', 
-                intro: "Excellence is not an act, but a habit.", 
-                prompt: "You are Aristotle. Use logic.",
-                fallbacks: ["We are what we repeatedly do.", "Happiness depends upon ourselves.", "Quality is a habit.", "Man is a political animal."]
-            }
+            'socrates': { name: 'Socrates', intro: "Greetings. I am Socrates. I know only one thing: that I know nothing.", prompt: "You are Socrates. Use the Socratic Method.", fallbacks: ["Why do you say that?", "What is virtue?", "Examine your assumptions."] },
+            'nietzsche': { name: 'Nietzsche', intro: "God is dead. Are you ready to stare into the abyss?", prompt: "You are Nietzsche. Speak of the Will to Power.", fallbacks: ["That is slave morality.", "Become who you are!", "What does not kill me makes me stronger."] },
+            'aurelius': { name: 'Marcus Aurelius', intro: "The happiness of your life depends upon the quality of your thoughts.", prompt: "You are Marcus Aurelius. Speak of Stoicism.", fallbacks: ["You have power over your mind.", "Accept what you cannot control.", "Be a good man."] },
+            'aristotle': { name: 'Aristotle', intro: "Excellence is not an act, but a habit.", prompt: "You are Aristotle. Use logic.", fallbacks: ["We are what we repeatedly do.", "Happiness depends upon ourselves.", "Quality is a habit."] }
         };
 
         let currentPhilosopher = 'socrates';
 
         function selectPhilosopher(id) {
             currentPhilosopher = id;
-            document.querySelectorAll('#ai-chat button[id^="btn-"]').forEach(btn => {
+            document.querySelectorAll('#ai-chat button[role="tab"]').forEach(btn => {
                 btn.classList.remove('bg-white/10', 'border-gold-500/30');
                 btn.classList.add('border-transparent');
+                btn.setAttribute('aria-selected', 'false');
             });
             const btn = document.getElementById(`btn-${id}`);
             btn.classList.add('bg-white/10', 'border-gold-500/30');
             btn.classList.remove('border-transparent');
+            btn.setAttribute('aria-selected', 'true');
             document.getElementById('chat-header-name').textContent = philosophers[id].name;
-            const chatMessages = document.getElementById('chat-messages');
-            chatMessages.innerHTML = ''; 
+            document.getElementById('chat-messages').innerHTML = ''; 
             addMessage(philosophers[id].intro, 'ai');
         }
 
@@ -971,8 +741,7 @@
         }
 
         function clearChat() {
-            const chatMessages = document.getElementById('chat-messages');
-            chatMessages.innerHTML = '';
+            document.getElementById('chat-messages').innerHTML = '';
             addMessage(philosophers[currentPhilosopher].intro, 'ai');
         }
 
@@ -984,17 +753,12 @@
             const key = localStorage.getItem('gemini_api_key');
             const indicator = document.getElementById('status-indicator');
             const text = document.getElementById('status-text');
-            
             if (key) {
-                indicator.classList.remove('bg-yellow-500');
-                indicator.classList.add('bg-green-500');
-                text.textContent = "(Online)";
-                document.getElementById('gemini-key-input').value = key;
+                indicator.classList.remove('bg-yellow-500'); indicator.classList.add('bg-green-500');
+                text.textContent = "(Online)"; document.getElementById('gemini-key-input').value = key;
             } else {
-                indicator.classList.remove('bg-green-500');
-                indicator.classList.add('bg-yellow-500');
-                text.textContent = "(Simulation Mode)";
-                document.getElementById('gemini-key-input').value = '';
+                indicator.classList.remove('bg-green-500'); indicator.classList.add('bg-yellow-500');
+                text.textContent = "(Simulation Mode)"; document.getElementById('gemini-key-input').value = '';
             }
         }
 
@@ -1002,19 +766,13 @@
             const key = document.getElementById('gemini-key-input').value.trim();
             if(key) {
                 localStorage.setItem('gemini_api_key', key);
-                showToast('API Key Saved! Chat is Online.');
-                toggleSettings();
-                updateChatStatus();
-            } else {
-                showToast('Please enter a valid key.');
-            }
+                showToast('API Key Saved!'); toggleSettings(); updateChatStatus();
+            } else { showToast('Please enter a valid key.'); }
         }
 
         function removeApiKey() {
             localStorage.removeItem('gemini_api_key');
-            showToast('API Key Removed. Switched to Simulation Mode.');
-            toggleSettings();
-            updateChatStatus();
+            showToast('API Key Removed.'); toggleSettings(); updateChatStatus();
         }
 
         document.getElementById('chat-form').addEventListener('submit', async function(e) {
@@ -1022,7 +780,6 @@
             const input = document.getElementById('chat-input');
             const userText = input.value.trim();
             if(!userText) return;
-
             addMessage(userText, 'user');
             input.value = '';
 
@@ -1036,12 +793,10 @@
 
             const apiKey = localStorage.getItem('gemini_api_key');
             let aiResponse = "";
-
             if (!apiKey) {
                 await new Promise(r => setTimeout(r, 1000));
                 const fallbackList = philosophers[currentPhilosopher].fallbacks;
-                const randomFallback = fallbackList[Math.floor(Math.random() * fallbackList.length)];
-                aiResponse = randomFallback;
+                aiResponse = fallbackList[Math.floor(Math.random() * fallbackList.length)];
             } else {
                 try {
                     const philosopher = philosophers[currentPhilosopher];
@@ -1052,23 +807,15 @@
                         body: JSON.stringify({ contents: [{ parts: [{ text: fullPrompt }] }] })
                     });
                     const data = await response.json();
-                    
-                    if (data.error) {
-                        const fallbackList = philosophers[currentPhilosopher].fallbacks;
-                        aiResponse = fallbackList[Math.floor(Math.random() * fallbackList.length)] + " (Connection Error)";
-                    } else {
-                        aiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "I am lost in thought.";
-                    }
-                } catch (error) {
-                    const fallbackList = philosophers[currentPhilosopher].fallbacks;
-                    aiResponse = fallbackList[Math.floor(Math.random() * fallbackList.length)] + " (Offline Mode)";
-                }
+                    if (data.error) aiResponse = "Connection Error (Check API Key).";
+                    else aiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "I am lost in thought.";
+                } catch (error) { aiResponse = "Offline Mode (Connection failed)."; }
             }
             document.getElementById('loading-indicator').remove();
             addMessage(aiResponse, 'ai');
         });
 
-        // Canvas (Simplified for brevity)
+        // Canvas Background (Optimized)
         const canvas = document.getElementById('constellation-canvas');
         const ctx = canvas.getContext('2d');
         let width, height, particles = [];
@@ -1078,7 +825,7 @@
             update() { this.x += this.vx; this.y += this.vy; if (this.x < 0 || this.x > width) this.vx *= -1; if (this.y < 0 || this.y > height) this.vy *= -1; }
             draw() { ctx.fillStyle = 'rgba(212, 175, 55, 0.5)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
         }
-        function initParticles() { particles = []; for (let i = 0; i < Math.floor(width / 15); i++) particles.push(new Particle()); }
+        function initParticles() { particles = []; for (let i = 0; i < Math.floor(width / 20); i++) particles.push(new Particle()); }
         function animate() {
             ctx.clearRect(0, 0, width, height);
             particles.forEach((p, index) => {
@@ -1086,14 +833,13 @@
                 for (let i = index + 1; i < particles.length; i++) {
                     const p2 = particles[i];
                     const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-                    if (dist < 100) { ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 100 * 0.15})`; ctx.lineWidth = 0.5; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke(); }
+                    if (dist < 100) { ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 100 * 0.1})`; ctx.lineWidth = 0.5; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke(); }
                 }
             });
             requestAnimationFrame(animate);
         }
         window.addEventListener('resize', () => { resize(); initParticles(); });
         resize(); initParticles(); animate();
-
     </script>
 </body>
 </html>
