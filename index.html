@@ -120,8 +120,8 @@
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="#branches" class="hover:text-gold-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Branches</a>
                         <a href="#philosophers" class="hover:text-gold-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Great Minds</a>
-                        <a href="#daily-stoic" class="hover:text-gold-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Daily Stoic</a>
-                        <a href="#library" class="px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-gold-500 hover:text-white hover:border-transparent transition-all duration-300 text-sm font-medium">Read More</a>
+                        <a href="#articles" class="hover:text-gold-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Articles</a>
+                        <a href="#daily-stoic" class="px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-gold-500 hover:text-white hover:border-transparent transition-all duration-300 text-sm font-medium">Daily Wisdom</a>
                     </div>
                 </div>
 
@@ -139,6 +139,7 @@
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#branches" class="text-gray-300 hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium">Branches</a>
                 <a href="#philosophers" class="text-gray-300 hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium">Great Minds</a>
+                <a href="#articles" class="text-gray-300 hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium">Articles</a>
                 <a href="#daily-stoic" class="text-gray-300 hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium">Daily Stoic</a>
             </div>
         </div>
@@ -167,8 +168,8 @@
                     Start Thinking
                     <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                 </button>
-                <button onclick="document.getElementById('branches').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 bg-transparent border border-white/20 hover:bg-white/5 text-white font-semibold rounded-sm transition-all backdrop-blur-sm">
-                    Explore Topics
+                <button onclick="document.getElementById('articles').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 bg-transparent border border-white/20 hover:bg-white/5 text-white font-semibold rounded-sm transition-all backdrop-blur-sm">
+                    Write Article
                 </button>
             </div>
         </div>
@@ -340,14 +341,11 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Philosopher 1 -->
+                <!-- Philosopher 1: Socrates -->
                 <div class="bg-brand-950 p-6 rounded-lg border border-white/5 hover:border-gold-500/50 transition-all group">
-                    <div class="mb-4 overflow-hidden rounded-md h-48 bg-slate-800 relative">
-                        <!-- Placeholder for Image -->
-                        <div class="absolute inset-0 flex items-center justify-center text-slate-600 bg-brand-800">
-                             <span class="text-6xl font-display opacity-20">S</span>
-                        </div>
-                        <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                    <div class="mb-4 overflow-hidden rounded-md h-48 bg-slate-800 relative group">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Socrate_du_Louvre.jpg/480px-Socrate_du_Louvre.jpg" alt="Socrates" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
                             <span class="text-white font-bold">Socrates</span>
                         </div>
                     </div>
@@ -359,13 +357,11 @@
                     </div>
                 </div>
 
-                <!-- Philosopher 2 -->
+                <!-- Philosopher 2: Aristotle -->
                 <div class="bg-brand-950 p-6 rounded-lg border border-white/5 hover:border-gold-500/50 transition-all group">
-                    <div class="mb-4 overflow-hidden rounded-md h-48 bg-slate-800 relative">
-                         <div class="absolute inset-0 flex items-center justify-center text-slate-600 bg-brand-800">
-                             <span class="text-6xl font-display opacity-20">A</span>
-                        </div>
-                         <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                    <div class="mb-4 overflow-hidden rounded-md h-48 bg-slate-800 relative group">
+                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/480px-Aristotle_Altemps_Inv8575.jpg" alt="Aristotle" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                         <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
                             <span class="text-white font-bold">Aristotle</span>
                         </div>
                     </div>
@@ -377,13 +373,11 @@
                     </div>
                 </div>
 
-                <!-- Philosopher 3 -->
+                <!-- Philosopher 3: Kant -->
                 <div class="bg-brand-950 p-6 rounded-lg border border-white/5 hover:border-gold-500/50 transition-all group">
-                    <div class="mb-4 overflow-hidden rounded-md h-48 bg-slate-800 relative">
-                         <div class="absolute inset-0 flex items-center justify-center text-slate-600 bg-brand-800">
-                             <span class="text-6xl font-display opacity-20">K</span>
-                        </div>
-                         <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                    <div class="mb-4 overflow-hidden rounded-md h-48 bg-slate-800 relative group">
+                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Kant_gemaelde_3.jpg/480px-Kant_gemaelde_3.jpg" alt="Immanuel Kant" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                         <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
                             <span class="text-white font-bold">Immanuel Kant</span>
                         </div>
                     </div>
@@ -395,13 +389,11 @@
                     </div>
                 </div>
 
-                <!-- Philosopher 4 -->
+                <!-- Philosopher 4: Nietzsche -->
                 <div class="bg-brand-950 p-6 rounded-lg border border-white/5 hover:border-gold-500/50 transition-all group">
-                    <div class="mb-4 overflow-hidden rounded-md h-48 bg-slate-800 relative">
-                         <div class="absolute inset-0 flex items-center justify-center text-slate-600 bg-brand-800">
-                             <span class="text-6xl font-display opacity-20">N</span>
-                        </div>
-                         <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                    <div class="mb-4 overflow-hidden rounded-md h-48 bg-slate-800 relative group">
+                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/480px-Nietzsche187a.jpg" alt="Friedrich Nietzsche" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                         <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
                             <span class="text-white font-bold">F. Nietzsche</span>
                         </div>
                     </div>
@@ -413,6 +405,80 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Community Articles Section (NEW) -->
+    <section id="articles" class="py-24 px-4 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+            <div>
+                <span class="text-gold-400 text-sm font-bold tracking-widest uppercase">The Agora</span>
+                <h2 class="text-4xl font-display font-bold text-white mt-2">Community Articles</h2>
+            </div>
+            <div class="flex bg-brand-900 p-1 rounded-lg border border-white/10">
+                <button onclick="switchTab('read')" id="tab-read" class="px-6 py-2 rounded-md text-sm font-bold bg-brand-700 text-white shadow-sm transition-all">Read</button>
+                <button onclick="switchTab('write')" id="tab-write" class="px-6 py-2 rounded-md text-sm font-bold text-slate-400 hover:text-white transition-all">Write</button>
+            </div>
+        </div>
+
+        <!-- Read Mode -->
+        <div id="read-view" class="grid grid-cols-1 md:grid-cols-2 gap-8 transition-opacity duration-300">
+            <!-- Featured Article -->
+            <article class="bg-brand-900 border border-white/5 rounded-xl p-8 hover:border-gold-500/30 transition-all group">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-400 font-bold">JD</div>
+                    <div>
+                        <p class="text-white text-sm font-bold">John Doe</p>
+                        <p class="text-slate-500 text-xs">2 hours ago</p>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">Modern Stoicism in Tech</h3>
+                <p class="text-slate-400 leading-relaxed mb-6 line-clamp-3">
+                    How ancient philosophy helps us navigate the complexities of modern software development and digital burnout. The dichotomy of control is more relevant than ever when dealing with server outages.
+                </p>
+                <a href="#" class="text-gold-400 text-sm font-bold hover:underline">Read Full Article</a>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="bg-brand-900 border border-white/5 rounded-xl p-8 hover:border-gold-500/30 transition-all group">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-full bg-brand-700 flex items-center justify-center text-slate-300 font-bold">AS</div>
+                    <div>
+                        <p class="text-white text-sm font-bold">Alice Smith</p>
+                        <p class="text-slate-500 text-xs">1 day ago</p>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">The Ethics of AI</h3>
+                <p class="text-slate-400 leading-relaxed mb-6 line-clamp-3">
+                    Examining the moral implications of artificial intelligence through the lens of Kantian ethics. Are algorithms capable of moral duty?
+                </p>
+                <a href="#" class="text-gold-400 text-sm font-bold hover:underline">Read Full Article</a>
+            </article>
+        </div>
+
+        <!-- Write Mode (Hidden by default) -->
+        <div id="write-view" class="hidden max-w-3xl mx-auto bg-brand-900 border border-white/10 rounded-xl p-8 shadow-2xl">
+            <h3 class="text-2xl font-bold text-white mb-6">Contribute to the Dialogue</h3>
+            <form id="article-form" class="space-y-6">
+                <div>
+                    <label class="block text-slate-400 text-sm font-bold mb-2">Title</label>
+                    <input type="text" id="article-title" class="w-full bg-brand-950 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Enter your article title...">
+                </div>
+                <div>
+                    <label class="block text-slate-400 text-sm font-bold mb-2">Author Name</label>
+                    <input type="text" id="article-author" class="w-full bg-brand-950 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Your name (or pseudonym)">
+                </div>
+                <div>
+                    <label class="block text-slate-400 text-sm font-bold mb-2">Content</label>
+                    <textarea id="article-content" rows="6" class="w-full bg-brand-950 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Share your thoughts..."></textarea>
+                </div>
+                <div class="flex justify-end gap-4">
+                    <button type="button" onclick="switchTab('read')" class="px-6 py-3 text-slate-400 hover:text-white transition-colors">Cancel</button>
+                    <button type="submit" class="px-8 py-3 bg-gold-500 hover:bg-gold-400 text-brand-950 font-bold rounded-lg transition-colors flex items-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4"></i> Publish
+                    </button>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -570,6 +636,75 @@
                 copyQuoteBtn.innerHTML = originalText;
                 lucide.createIcons();
             }, 2000);
+        });
+
+        // Article Tabs Logic
+        function switchTab(tab) {
+            const readView = document.getElementById('read-view');
+            const writeView = document.getElementById('write-view');
+            const tabRead = document.getElementById('tab-read');
+            const tabWrite = document.getElementById('tab-write');
+
+            if (tab === 'read') {
+                readView.classList.remove('hidden');
+                writeView.classList.add('hidden');
+                
+                tabRead.classList.add('bg-brand-700', 'text-white', 'shadow-sm');
+                tabRead.classList.remove('text-slate-400');
+                
+                tabWrite.classList.remove('bg-brand-700', 'text-white', 'shadow-sm');
+                tabWrite.classList.add('text-slate-400');
+            } else {
+                readView.classList.add('hidden');
+                writeView.classList.remove('hidden');
+                
+                tabWrite.classList.add('bg-brand-700', 'text-white', 'shadow-sm');
+                tabWrite.classList.remove('text-slate-400');
+                
+                tabRead.classList.remove('bg-brand-700', 'text-white', 'shadow-sm');
+                tabRead.classList.add('text-slate-400');
+            }
+        }
+
+        // Handle Article Submission
+        document.getElementById('article-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('article-title').value;
+            const author = document.getElementById('article-author').value || 'Anonymous';
+            const content = document.getElementById('article-content').value;
+            const readView = document.getElementById('read-view');
+
+            if (!title || !content) {
+                alert('Please fill in the title and content.');
+                return;
+            }
+
+            // Create new article HTML
+            const articleHTML = `
+                <article class="bg-brand-900 border border-white/5 rounded-xl p-8 hover:border-gold-500/30 transition-all group animate-float">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-400 font-bold">${author.substring(0,2).toUpperCase()}</div>
+                        <div>
+                            <p class="text-white text-sm font-bold">${author}</p>
+                            <p class="text-slate-500 text-xs">Just now</p>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">${title}</h3>
+                    <p class="text-slate-400 leading-relaxed mb-6 line-clamp-3">
+                        ${content}
+                    </p>
+                    <a href="#" class="text-gold-400 text-sm font-bold hover:underline">Read Full Article</a>
+                </article>
+            `;
+
+            // Insert new article at the beginning
+            readView.insertAdjacentHTML('afterbegin', articleHTML);
+            
+            // Clear form and switch back to read view
+            document.getElementById('article-form').reset();
+            switchTab('read');
+            alert('Your thought has been published to the Agora.');
         });
 
         // Canvas Constellation Animation
